@@ -8,12 +8,16 @@ arr = list(map(int, input().split()))
 
 result = [0] * n
 
+tmp = []
+
 def com(lev, start):
     if lev == n:
-        print(*result)
+        # print(*result)
+        tmp.append(result)
         return
     for i in range(start, len(arr)):
         result[lev] = arr[i]
         com(lev+1 , i + 1)
 
 com(0, 0)
+print(tmp)
