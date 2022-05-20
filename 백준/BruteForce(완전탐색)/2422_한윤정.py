@@ -2,14 +2,19 @@ from itertools import combinations
 
 n, m = map(int, input().split())
 
-nos = list(list(map(int, input().split())) for _ in range(m))
+answer = 0
 
-answer = set()
-for ice in combinations(range(1,n+1), 3):
-    ice = list(ice)
-    for no in nos:
-        if no not in ice:
-            print(no)
-            print(ice)
+ice = [[False for _ in range(n)] for _ in range(n)]
 
-# print(answer)
+for i in range(m):
+    i1, i2 = map(int, input().split())
+    ice[i1-1][i2-1] = True
+    ice[i2-1][i1-1] = True
+
+for i in range(n):
+    for j in range(i+1, n):
+        for k in range(j+1, n):
+            if not ice[i][j] and not ice[i][k] and not ice[j][k]:
+                answer += 1
+
+print(answer)
