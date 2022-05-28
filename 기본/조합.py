@@ -1,14 +1,9 @@
 # 조합
-from unittest import result
-
-
 n = int(input())
 
 arr = list(map(int, input().split()))
 
 result = [0] * n
-
-tmp = []
 
 def com(lev, start):
     if lev == n:
