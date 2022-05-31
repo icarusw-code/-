@@ -1,5 +1,6 @@
 import heapq
-
+# //....
+# 추가
 def dijkstra(dist, graph):
     heap = []
     heapq.heappush(heap, [1,0]) # 노드, 값
@@ -29,5 +30,4 @@ def solution(n, edges):
     for i in dist:
         if max(dist[1:]) == i:
             answer += 1
-    
     return answer
